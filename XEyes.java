@@ -9,7 +9,7 @@ import java.awt.event.*;
  * of this class.
  */
 
-public class XEyes extends JPanel implements MouseListener{
+public class XEyes extends JPanel implements MouseListener, MouseMotionListener {
 
 
     private String fileName = "einstein.jpg";
@@ -35,6 +35,7 @@ public class XEyes extends JPanel implements MouseListener{
         eye_1 = new Eye(269, 290, 49, 37);
         eye_2 = new Eye(372, 290, 49, 37);
         addMouseListener(this);
+        addMouseMotionListener(this);
         myFrame.setVisible(true);
         }
 
@@ -63,7 +64,12 @@ public class XEyes extends JPanel implements MouseListener{
         
         repaint();
     }
-  
+    public void mouseMoved (MouseEvent event) {
+        eye_1.movePupil(event.getX(), event.getY());
+        eye_2.movePupil(event.getX(), event.getY());
+        
+        repaint();
+    }
     public void mouseReleased (MouseEvent event) {
     }
     
