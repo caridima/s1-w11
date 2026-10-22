@@ -23,7 +23,10 @@ public class Ball{
      */
     public boolean overlap(Ball b){
         //do this
-
+        if (this.x <= this.x + calcDistance(b) <= this.x + this.radius){
+            return true;
+        }
+            return false;
     }
 
 }
