@@ -56,12 +56,15 @@ public class XEyes extends JPanel implements MouseListener, MouseMotionListener 
         g.drawImage(myPic.getImage(), 0, 0, this);
         eye_1.draw(g);
         eye_2.draw(g);
+        g.setColor(Color.red);
         eye_1.drawLaser(g, eyeX, eyeY);
         eye_2.drawLaser(g, eyeX, eyeY);
     }
     
     // move the pupil when the mouse is clicked
     public void mouseClicked (MouseEvent event) {
+        this.eyeX=event.getX();
+        this.eyeY=event.getY();
         eye_1.movePupil(event.getX(), event.getY());
         eye_2.movePupil(event.getX(), event.getY());
         

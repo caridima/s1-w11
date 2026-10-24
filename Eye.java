@@ -91,8 +91,15 @@ public class Eye {
             pupilX = (int) precisePupilX;
             // findY will calculate the vertical posiiton of the pupil, at most vertDist away from eye center 
             pupilY = (int) findY(precisePupilX, slope);
-        }
+        } 
+    }public double square(double number) {
+        return number * number;
     }
+    public boolean inEye (int mouseX, int mouseY) {
+        double dist = square(mouseX - eyeCenterX) / square(eyeWidth/2-pupilRadius) 
+                 + square(mouseY - eyeCenterY) / square(eyeHeight/2-pupilRadius);
+        return (dist <= 1);    
+}
     
     // findX calculates the new horizonal position of the pupil, at most horDist away from eye center
     public double findX (double slope, int deltaX) {
