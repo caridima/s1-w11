@@ -20,7 +20,8 @@ public class XEyes extends JPanel implements MouseListener, MouseMotionListener 
     // Each eye gets an instance variable.
     private Eye eye_1;
     private Eye eye_2;
-    
+    private int eyeX;
+    private int eyeY;
 
     // Constructor: this loads the image "einstein.jpg" in the "images" directory 
     // within the project
@@ -55,6 +56,8 @@ public class XEyes extends JPanel implements MouseListener, MouseMotionListener 
         g.drawImage(myPic.getImage(), 0, 0, this);
         eye_1.draw(g);
         eye_2.draw(g);
+        eye_1.drawLaser(g, eyeX, eyeY);
+        eye_2.drawLaser(g, eyeX, eyeY);
     }
     
     // move the pupil when the mouse is clicked
@@ -67,7 +70,8 @@ public class XEyes extends JPanel implements MouseListener, MouseMotionListener 
     public void mouseMoved (MouseEvent event) {
         eye_1.movePupil(event.getX(), event.getY());
         eye_2.movePupil(event.getX(), event.getY());
-        
+        eyeX = event.getX();
+        eyeY = event.getY();
         repaint();
     }
     public void mouseReleased (MouseEvent event) {

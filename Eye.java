@@ -8,7 +8,8 @@ public class Eye {
     private int eyeballBorder = 3;
     private int pupilRadius = 10;
     private double horDist, vertDist;
-
+    private int clickedX;
+    private int clickedY;
 
     public Eye(int x, int y, int width, int height) {
         // top left of this eye
@@ -51,7 +52,10 @@ public class Eye {
         g.setColor(Color.black);
         g.fillOval(pupilX - pupilRadius, pupilY - pupilRadius, 2 * pupilRadius, 2 * pupilRadius);
     }
-
+    public void drawLaser (Graphics g, int x, int y){
+        g.setColor(Color.red);
+        g.drawLine(pupilX,pupilY,x,y);
+    }
 
 
     //////
